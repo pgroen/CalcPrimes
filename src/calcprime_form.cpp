@@ -23,7 +23,8 @@ void CalcPrimeForm::slotUpdateCurrentValue( uint64_t value )
 
 void CalcPrimeForm::slotAddNewPrime( uint64_t new_prime )
 {
-    this->listPrimes->addItem(QString( std::to_string( new_prime ).c_str() ));
+    this->listPrimes->insertPlainText(QString( std::to_string( new_prime ).c_str() ) + "\t");
+    this->listPrimes->centerCursor();
 }
 
 void CalcPrimeForm::slotStartButtonClicked()
