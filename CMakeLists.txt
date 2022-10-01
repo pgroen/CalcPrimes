@@ -23,12 +23,20 @@ include_directories( SYSTEM
 include(compiler)
 
 set(SRC_LIST
+    ${CMAKE_SOURCE_DIR}/src/calcprime.cpp
+    ${CMAKE_SOURCE_DIR}/src/calcprime_form.cpp
     ${CMAKE_SOURCE_DIR}/src/main.cpp
+)
+
+include(qtuic)
+create_ui( SRC_LIST UIC_LIST
+    ${CMAKE_SOURCE_DIR}/src/calcprime_form.ui
 )
 
 include(qtmoc)
 create_mocs( SRC_LIST MOC_LIST
-    # ${CMAKE_SOURCE_DIR}/<moc_header.h>
+    ${CMAKE_SOURCE_DIR}/src/calcprime.h
+    ${CMAKE_SOURCE_DIR}/src/calcprime_form.h
 )
 
 add_executable( ${PROJECT_NAME}
